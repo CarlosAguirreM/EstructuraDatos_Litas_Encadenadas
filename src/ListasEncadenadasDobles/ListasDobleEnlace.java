@@ -25,13 +25,7 @@ public class ListasDobleEnlace {
 
 	public void agregarNodoInicio(NodoD nodoNuevo){ 
 
-		/*if(verificarVacia()==true){
-
-			cabezaLista.setSiguiente(nodoNuevo);
-			finalLista.setAnterior(nodoNuevo);
-
-		}else{*/
-
+		
 		NodoD nodoAux=cabezaLista.getSiguiente(); //copia de la lista
 		
 		nodoNuevo.setSiguiente(nodoAux); // nodo ingresado se conecta con el 
@@ -40,8 +34,6 @@ public class ListasDobleEnlace {
 		nodoAux.setAnterior(nodoNuevo);
 		
 		cabezaLista.setSiguiente(nodoNuevo);
-
-		//}
 
 		tamaño++; // El tamaño de la lista aumenta en 1 
 
