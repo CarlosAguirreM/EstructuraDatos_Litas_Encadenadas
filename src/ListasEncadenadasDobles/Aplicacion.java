@@ -48,13 +48,16 @@ public class Aplicacion {
 	        lista.eliminarFinal();
 	        System.out.println("\n"+lista.recorrerListaAscendente());
 	        
-	        /*System.out.println("\n\n*********Consulta si existe el dato 30***********");
-	        System.out.println(lista.buscarNodoContenido("30"));
+	        System.out.println("\n\n*********Consulta si existe el dato 2***********");
+	        System.out.println(lista.buscarNodoContenido("2"));
 	        
-	        System.out.println("\nConsulta la posicion del valor 9");
-	        System.out.println(lista.obtenerPosicion("9"));
+	        System.out.println("\n\n*******Consulta la posicion del dato 4***********");
+	        System.out.println(lista.obtenerPosicion("4"));
 	        
-	        //System.out.println(lista.imprimirLista());
+	        System.out.println("\n\n*********Consulta si existe el nodo 5***********");
+	        System.out.println(lista.buscarNodoPosicion(5));
+	        
+	       /* //System.out.println(lista.imprimirLista());
 	        
 	        System.out.println("\nElimina la lista");
 	        lista.eliminarLista();

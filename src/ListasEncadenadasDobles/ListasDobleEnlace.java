@@ -4,9 +4,9 @@ import ListasEncadenadasDobles.NodoD;
 
 public class ListasDobleEnlace {
 
-	protected NodoD cabezaLista; //nodo inicial de la lista (cabeza)
-	protected NodoD finalLista; //nodo inicial de la lista (cabeza)
-	protected int tamaño; 	// número de nodos en la lista 
+	protected NodoD cabezaLista; 
+	protected NodoD finalLista; 
+	protected int tamaño; 	
 
 	public void ListaDobleEnlace(){
 		
