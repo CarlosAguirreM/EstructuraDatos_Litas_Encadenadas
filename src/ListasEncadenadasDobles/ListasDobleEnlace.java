@@ -143,20 +143,30 @@ public class ListasDobleEnlace {
 		return indice;
 	}
 	
-	public boolean buscarNodoPosicion(int posicion){
+	public NodoD buscarNodoPosicion(int posicion){
 		
-		boolean encontrado=false;
+		NodoD nodoAux=cabezaLista.getSiguiente(); 
+		NodoD nodoEncontrado=null;
+		int i=0;
 		
 		if( posicion>tamaño || posicion <tamaño){
 			
-			encontrado=false;
+			nodoEncontrado=null;
 			
 		}else{
 			
-			encontrado=true;
+			do{
+				
+				nodoAux=nodoAux.getSiguiente();
+				i++;
+				
+				if(i==posicion)
+					nodoEncontrado=nodoAux;
+			
+			}while(posicion<tamaño);
 		}
 		
-		return encontrado;
+		return nodoEncontrado;
 	}
 	
 	public void eliminarLista(){
