@@ -177,4 +177,32 @@ public class ListasDobleEnlace {
 		
 	}
 	
+	public void editarNodoContenido(String dato){
+		
+		NodoD nodoAux = null;
+		
+		nodoAux=buscarNodoContenido(dato);
+		
+		if(nodoAux!=null){
+			
+			nodoAux.setElemento(dato);
+			
+		}
+		
+	}
+	
+	public void editarNodoPosición(int posicion, String dato){
+		
+		NodoD nodoAux = null;
+		
+		nodoAux=buscarNodoPosicion(posicion);
+		
+		if(nodoAux!=null){
+			
+			nodoAux.setElemento(dato);
+			
+		}
+		
+	}
+	
 }
