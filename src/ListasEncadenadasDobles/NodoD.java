@@ -21,14 +21,6 @@ public class NodoD {
 		
 	}
 	
-	/*	
-	public void NodoD(String elemento, NodoD nodoSig){
-		
-		this.elemento=elemento;
-		this.siguiente=nodoSig;
-		this.anterior=null;
-			}*/
-
 	public String getElemento() {
 		return elemento;
 	}

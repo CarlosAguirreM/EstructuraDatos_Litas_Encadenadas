@@ -27,34 +27,16 @@ public class ListasDobleEnlace {
 		return getTamaño()==0;
 	}
 
-	public NodoD getInicio(){
-		
-		NodoD nodoAux=null;
-		
-		if(verificarVacia()){
-			
-			nodoAux=null;
-			
-		}else{
-			
-			nodoAux=cabezaLista.getSiguiente();
-			
-		}
-		
-		return nodoAux;
-		
-	} 
-	
 	public void agregarNodoInicio(NodoD nodoNuevo){ 
 
-		NodoD nodoAux=cabezaLista.getSiguiente(); 
+		NodoD nodoAux=cabezaLista; 
 		
-		nodoNuevo.setSiguiente(nodoAux); 
-		nodoNuevo.setAnterior(cabezaLista);
+		nodoNuevo.setAnterior(nodoAux); 
+		nodoNuevo.setSiguiente(cabezaLista);
 
-		nodoAux.setAnterior(nodoNuevo);
+		//cabezaLista.setSiguiente(nodoNuevo);
 
-		cabezaLista.setSiguiente(nodoNuevo);
+		cabezaLista=nodoNuevo;
 
 		tamaño++; 
 
@@ -62,14 +44,14 @@ public class ListasDobleEnlace {
 
 	public void agregarNodoFinal(NodoD nodoNuevo){ 
 
-		NodoD nodoAux = finalLista.getAnterior();
+		NodoD nodoAux = finalLista;
 
-		nodoNuevo.setAnterior(nodoAux);
-		nodoNuevo.setSiguiente(finalLista); 
+		nodoNuevo.setSiguiente(nodoAux);
+		nodoNuevo.setAnterior(finalLista); 
 
-		nodoAux.setSiguiente(nodoNuevo);
+		//nodoAux.setSiguiente(nodoNuevo);
 
-		finalLista.setAnterior(nodoNuevo);
+		finalLista=nodoNuevo;
 
 		tamaño++;
 	}
@@ -108,14 +90,7 @@ public class ListasDobleEnlace {
 		NodoD nodoAux = null;
 		NodoD nodoAuxSig = null;
 			
-	/*	if (verificarVacia()==true) {
-
-			cabezaLista.setSiguiente(nodoNuevo);
-			finalLista.setAnterior(nodoNuevo);
-
-		} 
-*/
-		nodoAux=buscarNodoContenido(dato);
+	  nodoAux=buscarNodoContenido(dato);
 
 		if(nodoAux != null){
 			
@@ -326,10 +301,10 @@ public class ListasDobleEnlace {
 
 		if(verificarVacia()==false){
 
-			NodoD nodoAux= cabezaLista.getSiguiente();
+			NodoD nodoAux= cabezaLista;
 			int i=0;
 
-			while(nodoAux.getElemento()!= null){
+			while(nodoAux!= null){
 
 				lista += (i + ". [ "+ nodoAux.getElemento()+" ] <-> ");
 				nodoAux=nodoAux.getSiguiente();
@@ -348,10 +323,10 @@ public class ListasDobleEnlace {
 
 		if(verificarVacia()==false){
 
-			NodoD nodoAux= finalLista.getAnterior();
+			NodoD nodoAux= finalLista;
 			int i=tamaño;
 
-			while(nodoAux.getElemento()!= null){
+			while(nodoAux!= null){
 
 				lista += (i + ". [ "+ nodoAux.getElemento()+" ] <-> ");
 				nodoAux=nodoAux.getAnterior();
