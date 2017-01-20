@@ -40,12 +40,6 @@ public class ListasDobleEnlace {
 
 	public void agregarNodoFinal(NodoD nodoNuevo){ 
 
-		/*  if (verificarVacia()==true) {
-
-            finalLista.setAnterior(nodoNuevo);
-
-        } else{*/
-
 		NodoD nodoAux = finalLista.getAnterior();//copia de la lista
 
 		nodoNuevo.setAnterior(nodoAux);
@@ -54,8 +48,6 @@ public class ListasDobleEnlace {
 		nodoAux.setSiguiente(nodoNuevo);
 
 		finalLista.setAnterior(nodoNuevo);
-
-		//}
 
 		tamaño++;
 	}
@@ -82,7 +74,7 @@ public class ListasDobleEnlace {
 
 	public void eliminarIncio(){
 
-		NodoD nodoAux = cabezaLista.getSiguiente();//copia de la lista
+		NodoD nodoAux = cabezaLista.getSiguiente();
 
 		cabezaLista.setSiguiente(nodoAux.getSiguiente());
 		nodoAux.getSiguiente().setAnterior(cabezaLista);
@@ -176,7 +168,7 @@ public class ListasDobleEnlace {
 
 	}
 
-	public void editarNodoContenido(String dato){
+	public void editarNodoContenido(String dato, String datoNuevo){
 
 		NodoD nodoAux = null;
 
@@ -184,7 +176,7 @@ public class ListasDobleEnlace {
 
 		if(nodoAux!=null){
 
-			nodoAux.setElemento(dato);
+			nodoAux.setElemento(datoNuevo);
 
 		}
 
@@ -199,6 +191,48 @@ public class ListasDobleEnlace {
 		if(nodoAux!=null){
 
 			nodoAux.setElemento(dato);
+
+		}
+
+	}
+
+	public void eliminarNodoContenido(String dato){
+
+		NodoD nodoAux = null;
+		NodoD nodoAux2=null;
+		NodoD nodoAux3=null;
+
+		nodoAux=buscarNodoContenido(dato);
+
+		if(nodoAux!=null){
+
+			nodoAux2=nodoAux.getAnterior();
+			nodoAux3=nodoAux.getSiguiente();
+
+			nodoAux2.setSiguiente(nodoAux3);
+
+			nodoAux3.setAnterior(nodoAux2);
+
+		}
+
+	}
+
+	public void eliminarNodoPosición(int posicion){
+
+		NodoD nodoAux = null;
+		NodoD nodoAux2=null;
+		NodoD nodoAux3=null;
+
+		nodoAux=buscarNodoPosicion(posicion);
+
+		if(nodoAux!=null){
+
+			nodoAux2=nodoAux.getAnterior();
+			nodoAux3=nodoAux.getSiguiente();
+
+			nodoAux2.setSiguiente(nodoAux3);
+
+			nodoAux3.setAnterior(nodoAux2);
 
 		}
 
@@ -225,7 +259,7 @@ public class ListasDobleEnlace {
 		return lista;
 
 	}
-	
+
 	public String recorrerListaDescendente(){
 
 		String lista = "";
