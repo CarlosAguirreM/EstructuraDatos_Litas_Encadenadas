@@ -40,7 +40,7 @@ public class ListasDobleEnlace {
 
 	public void agregarNodoFinal(NodoD nodoNuevo){ 
 
-		NodoD nodoAux = finalLista.getAnterior();//copia de la lista
+		NodoD nodoAux = finalLista.getAnterior();
 
 		nodoNuevo.setAnterior(nodoAux);
 		nodoNuevo.setSiguiente(finalLista); 
@@ -52,26 +52,86 @@ public class ListasDobleEnlace {
 		tamaño++;
 	}
 
-	public void agregarNuevoNodo(NodoD nodoNuevo){ 
+	public void agregarNuevoNodoAntes(NodoD nodoNuevo, String dato){ 
 
-		if (verificarVacia()==true) {
+		NodoD nodoAux = null;
+		NodoD nodoAuxAnt = null;
+			
+	/*	if (verificarVacia()==true) {
 
-			cabezaLista = nodoNuevo;
+			cabezaLista.setSiguiente(nodoNuevo);
+			finalLista.setAnterior(nodoNuevo);
 
-		} else{
+		} 
+*/
+		nodoAux=buscarNodoContenido(dato);
 
-			NodoD nodoAux = cabezaLista;
+		if(nodoAux != null){
+			
+			nodoAuxAnt = nodoAux.getAnterior();
+			
+			nodoNuevo.setAnterior(nodoAuxAnt);
+			nodoNuevo.setSiguiente(nodoAux);
+			
+			nodoAuxAnt.setSiguiente(nodoNuevo);
+			
+			nodoAux.setAnterior(nodoNuevo);
+		}
 
-			while(nodoAux.getSiguiente()!= null){
-				nodoAux = nodoAux.getSiguiente();
-			}
+		tamaño++;
+	}
+	
+	public void agregarNuevoNodoDespues(NodoD nodoNuevo, String dato){ 
 
+		NodoD nodoAux = null;
+		NodoD nodoAuxSig = null;
+			
+	/*	if (verificarVacia()==true) {
+
+			cabezaLista.setSiguiente(nodoNuevo);
+			finalLista.setAnterior(nodoNuevo);
+
+		} 
+*/
+		nodoAux=buscarNodoContenido(dato);
+
+		if(nodoAux != null){
+			
+			nodoAuxSig = nodoAux.getSiguiente();
+			
+			nodoNuevo.setSiguiente(nodoAuxSig);
+			nodoNuevo.setAnterior(nodoAux);
+			
+			nodoAuxSig.setAnterior(nodoNuevo);
+			
 			nodoAux.setSiguiente(nodoNuevo);
 		}
 
 		tamaño++;
 	}
 
+	public void agregarNuevoNodoPosicion(NodoD nodoNuevo, int posicion){ 
+
+		NodoD nodoAuxAnt = null;
+		NodoD nodoAuxSig = null;
+			
+		nodoAuxAnt=buscarNodoPosicion(posicion);
+
+		if(nodoAuxAnt != null){
+			
+			nodoAuxSig = nodoAuxAnt.getSiguiente();
+			
+			nodoNuevo.setSiguiente(nodoAuxSig);
+			nodoNuevo.setAnterior(nodoAuxAnt);
+			
+			nodoAuxSig.setAnterior(nodoNuevo);
+			
+			nodoAuxAnt.setSiguiente(nodoNuevo);
+		}
+
+		tamaño++;
+	}
+	
 	public void eliminarIncio(){
 
 		NodoD nodoAux = cabezaLista.getSiguiente();
