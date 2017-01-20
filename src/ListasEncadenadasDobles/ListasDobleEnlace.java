@@ -8,9 +8,14 @@ public class ListasDobleEnlace {
 	protected NodoD finalLista; //nodo inicial de la lista (cabeza)
 	protected int tamaño; 	// número de nodos en la lista 
 
-	public void ListaDobleEnlace(){ //Constructor por defecto, crea lista vacía 
-		cabezaLista = new NodoD("head", null, finalLista); 
+	public void ListaDobleEnlace(){
+		
 		tamaño = 0; 
+		cabezaLista = null; 
+		finalLista = null;
+		cabezaLista.setSiguiente(finalLista);
+		finalLista.setAnterior(cabezaLista);
+		
 	}
 
 	public int getTamaño(){
@@ -22,19 +27,36 @@ public class ListasDobleEnlace {
 		return getTamaño()==0;
 	}
 
+	public NodoD getInicio(){
+		
+		NodoD nodoAux=null;
+		
+		if(verificarVacia()){
+			
+			nodoAux=null;
+			
+		}else{
+			
+			nodoAux=cabezaLista.getSiguiente();
+			
+		}
+		
+		return nodoAux;
+		
+	} 
+	
 	public void agregarNodoInicio(NodoD nodoNuevo){ 
 
-
-		NodoD nodoAux=cabezaLista.getSiguiente(); //copia de la lista
-
-		nodoNuevo.setSiguiente(nodoAux); // nodo ingresado se conecta con el 
+		NodoD nodoAux=cabezaLista.getSiguiente(); 
+		
+		nodoNuevo.setSiguiente(nodoAux); 
 		nodoNuevo.setAnterior(cabezaLista);
 
 		nodoAux.setAnterior(nodoNuevo);
 
 		cabezaLista.setSiguiente(nodoNuevo);
 
-		tamaño++; // El tamaño de la lista aumenta en 1 
+		tamaño++; 
 
 	}
 
@@ -309,7 +331,7 @@ public class ListasDobleEnlace {
 
 			while(nodoAux.getElemento()!= null){
 
-				lista += (i + ". [ "+ nodoAux.getElemento()+" ] -> ");
+				lista += (i + ". [ "+ nodoAux.getElemento()+" ] <-> ");
 				nodoAux=nodoAux.getSiguiente();
 
 				i++;
@@ -331,7 +353,7 @@ public class ListasDobleEnlace {
 
 			while(nodoAux.getElemento()!= null){
 
-				lista += (i + ". [ "+ nodoAux.getElemento()+" ] <- ");
+				lista += (i + ". [ "+ nodoAux.getElemento()+" ] <-> ");
 				nodoAux=nodoAux.getAnterior();
 
 				i--;
