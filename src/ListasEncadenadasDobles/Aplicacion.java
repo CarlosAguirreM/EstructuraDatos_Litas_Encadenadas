@@ -26,8 +26,8 @@ public class Aplicacion{
 	        System.out.println("\n\n***** Lista de inicio a fin*****");
 	        System.out.println("\n"+lista.recorrerListaAscendente());
 	        
-	        System.out.println("\n\n***** Lista de fin a inicio*****");
-	        System.out.println(lista.recorrerListaDescendente());
+	       /* System.out.println("\n\n***** Lista de fin a inicio*****");
+	        System.out.println(lista.recorrerListaDescendente());*/
 	        
 	        System.out.println("\n\n***** Tamaño ******");
 	        System.out.println(lista.getTamaño());
@@ -38,5 +38,14 @@ public class Aplicacion{
 	        
 	        System.out.println("\n\n********Ingresa un nodo nuevo al final***********");
 	        lista.agregarNodoFinal(new NodoD("23", null, null));
+	        System.out.println("\n"+lista.recorrerListaAscendente());
+	        
+	        lista.eliminarIncio();
+	        System.out.println("\n"+lista.recorrerListaAscendente());
+	        
+	        lista.eliminarFinal();
+	        System.out.println("\n"+lista.recorrerListaAscendente());
+	        
+	        System.out.println(lista.buscarNodoContenido("2").getElemento());
 	}
 }

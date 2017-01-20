@@ -2,6 +2,7 @@ package ListasEncadenadasDobles;
 
 import ListasEncadenadasDobles.NodoD;
 
+
 public class ListasDobleEnlace {
 
 	protected NodoD cabezaLista; 
@@ -9,13 +10,13 @@ public class ListasDobleEnlace {
 	protected int tamaño; 	
 
 	public void ListaDobleEnlace(){
-		
+
 		tamaño = 0; 
 		cabezaLista = null; 
 		finalLista = null;
 		cabezaLista.setSiguiente(finalLista);
 		finalLista.setAnterior(cabezaLista);
-		
+
 	}
 
 	public int getTamaño(){
@@ -30,7 +31,7 @@ public class ListasDobleEnlace {
 	public void agregarNodoInicio(NodoD nodoNuevo){ 
 
 		NodoD nodoAux=cabezaLista; 
-		
+
 		nodoNuevo.setAnterior(nodoAux); 
 		nodoNuevo.setSiguiente(cabezaLista);
 
@@ -44,7 +45,25 @@ public class ListasDobleEnlace {
 
 	public void agregarNodoFinal(NodoD nodoNuevo){ 
 
-		NodoD nodoAux = finalLista;
+		if (verificarVacia()==true) {
+
+			cabezaLista = nodoNuevo;
+
+		} else{
+
+			NodoD nodoAux = cabezaLista;
+
+			while(nodoAux.getSiguiente()!= null){
+				nodoAux = nodoAux.getSiguiente();
+			}
+
+			nodoAux.setSiguiente(nodoNuevo);
+			nodoNuevo.setAnterior(nodoAux);
+		}
+
+		tamaño++;
+
+		/*NodoD nodoAux = finalLista;
 
 		nodoNuevo.setSiguiente(nodoAux);
 		nodoNuevo.setAnterior(finalLista); 
@@ -53,54 +72,47 @@ public class ListasDobleEnlace {
 
 		finalLista=nodoNuevo;
 
-		tamaño++;
+		tamaño++;*/
 	}
 
 	public void agregarNuevoNodoAntes(NodoD nodoNuevo, String dato){ 
 
 		NodoD nodoAux = null;
 		NodoD nodoAuxAnt = null;
-			
-	/*	if (verificarVacia()==true) {
 
-			cabezaLista.setSiguiente(nodoNuevo);
-			finalLista.setAnterior(nodoNuevo);
-
-		} 
-*/
 		nodoAux=buscarNodoContenido(dato);
 
 		if(nodoAux != null){
-			
+
 			nodoAuxAnt = nodoAux.getAnterior();
-			
+
 			nodoNuevo.setAnterior(nodoAuxAnt);
 			nodoNuevo.setSiguiente(nodoAux);
-			
+
 			nodoAuxAnt.setSiguiente(nodoNuevo);
-			
+
 			nodoAux.setAnterior(nodoNuevo);
 		}
 
 		tamaño++;
 	}
-	
+
 	public void agregarNuevoNodoDespues(NodoD nodoNuevo, String dato){ 
 
 		NodoD nodoAux = null;
 		NodoD nodoAuxSig = null;
-			
-	  nodoAux=buscarNodoContenido(dato);
+
+		nodoAux=buscarNodoContenido(dato);
 
 		if(nodoAux != null){
-			
+
 			nodoAuxSig = nodoAux.getSiguiente();
-			
+
 			nodoNuevo.setSiguiente(nodoAuxSig);
 			nodoNuevo.setAnterior(nodoAux);
-			
+
 			nodoAuxSig.setAnterior(nodoNuevo);
-			
+
 			nodoAux.setSiguiente(nodoNuevo);
 		}
 
@@ -111,30 +123,31 @@ public class ListasDobleEnlace {
 
 		NodoD nodoAuxAnt = null;
 		NodoD nodoAuxSig = null;
-			
+
 		nodoAuxAnt=buscarNodoPosicion(posicion);
 
 		if(nodoAuxAnt != null){
-			
+
 			nodoAuxSig = nodoAuxAnt.getSiguiente();
-			
+
 			nodoNuevo.setSiguiente(nodoAuxSig);
 			nodoNuevo.setAnterior(nodoAuxAnt);
-			
+
 			nodoAuxSig.setAnterior(nodoNuevo);
-			
+
 			nodoAuxAnt.setSiguiente(nodoNuevo);
 		}
 
 		tamaño++;
 	}
-	
+
 	public void eliminarIncio(){
 
-		NodoD nodoAux = cabezaLista.getSiguiente();
+		NodoD nodoAux = cabezaLista;
 
-		cabezaLista.setSiguiente(nodoAux.getSiguiente());
-		nodoAux.getSiguiente().setAnterior(cabezaLista);
+
+		cabezaLista = cabezaLista.getSiguiente(); // nodo inicial apunta al siguiente 
+		nodoAux.setSiguiente(null);
 
 		tamaño--;
 
@@ -142,201 +155,198 @@ public class ListasDobleEnlace {
 
 	public void eliminarFinal(){
 
-		NodoD nodoAux = finalLista.getAnterior();//copia de la lista
+		NodoD nodoAux = cabezaLista;
 
-		finalLista.setAnterior(nodoAux.getAnterior());
-		nodoAux.getAnterior().setSiguiente(finalLista);
+		while(nodoAux.getSiguiente()!= null){
+			nodoAux = nodoAux.getSiguiente();
+		}
 
-		tamaño--;
-
+		nodoAux.getAnterior().setSiguiente(null);;
 	}
+
 
 	public NodoD buscarNodoContenido(String dato){
 
-		NodoD nodoAux=cabezaLista.getSiguiente(); 
+		NodoD nodoAux=cabezaLista; 
 		NodoD nodoEncontrado=null;
 
 		while(nodoAux!=null){  
 
-			if(dato.equals(nodoAux.getElemento())){ 
+			nodoAux=nodoAux.getSiguiente();
 
+			if(nodoAux.getElemento().equals(dato)) 
 				nodoEncontrado=nodoAux;
-
-			}else{
-
-				nodoAux=nodoAux.getSiguiente();
-			}
 		}
+	
+	return nodoEncontrado;
+}
 
-		return nodoEncontrado;
-	}
+public int obtenerPosicion(String dato){
 
-	public int obtenerPosicion(String dato){
+	NodoD nodoAux=cabezaLista.getSiguiente(); 
+	int indice=0;
 
-		NodoD nodoAux=cabezaLista.getSiguiente(); 
-		int indice=0;
+	while(nodoAux!=null){  
 
-		while(nodoAux!=null){  
+		if(dato.equals(nodoAux.getElemento())){ 
 
-			if(dato.equals(nodoAux.getElemento())){ 
-
-				return indice;
-
-			}else{
-
-				indice++;
-			}
-		}
-
-		return indice;
-	}
-
-	public NodoD buscarNodoPosicion(int posicion){
-
-		NodoD nodoAux=cabezaLista.getSiguiente(); 
-		NodoD nodoEncontrado=null;
-		int i=0;
-
-		if( posicion>tamaño || posicion <tamaño){
-
-			nodoEncontrado=null;
+			return indice;
 
 		}else{
 
-			do{
+			indice++;
+		}
+	}
 
-				nodoAux=nodoAux.getSiguiente();
-				i++;
+	return indice;
+}
 
-				if(i==posicion)
-					nodoEncontrado=nodoAux;
+public NodoD buscarNodoPosicion(int posicion){
 
-			}while(posicion<tamaño);
+	NodoD nodoAux=cabezaLista.getSiguiente(); 
+	NodoD nodoEncontrado=null;
+	int i=0;
+
+	if( posicion>tamaño || posicion <tamaño){
+
+		nodoEncontrado=null;
+
+	}else{
+
+		do{
+
+			nodoAux=nodoAux.getSiguiente();
+			i++;
+
+			if(i==posicion)
+				nodoEncontrado=nodoAux;
+
+		}while(posicion<tamaño);
+	}
+
+	return nodoEncontrado;
+}
+
+public void eliminarLista(){
+
+	cabezaLista.setSiguiente(finalLista);
+	finalLista.setAnterior(cabezaLista);
+	tamaño=0;
+
+}
+
+public void editarNodoContenido(String dato, String datoNuevo){
+
+	NodoD nodoAux = null;
+
+	nodoAux=buscarNodoContenido(dato);
+
+	if(nodoAux!=null){
+
+		nodoAux.setElemento(datoNuevo);
+
+	}
+
+}
+
+public void editarNodoPosición(int posicion, String dato){
+
+	NodoD nodoAux = null;
+
+	nodoAux=buscarNodoPosicion(posicion);
+
+	if(nodoAux!=null){
+
+		nodoAux.setElemento(dato);
+
+	}
+
+}
+
+public void eliminarNodoContenido(String dato){
+
+	NodoD nodoAux = null;
+	NodoD nodoAux2=null;
+	NodoD nodoAux3=null;
+
+	nodoAux=buscarNodoContenido(dato);
+
+	if(nodoAux!=null){
+
+		nodoAux2=nodoAux.getAnterior();
+		nodoAux3=nodoAux.getSiguiente();
+
+		nodoAux2.setSiguiente(nodoAux3);
+
+		nodoAux3.setAnterior(nodoAux2);
+
+	}
+
+}
+
+public void eliminarNodoPosición(int posicion){
+
+	NodoD nodoAux = null;
+	NodoD nodoAux2=null;
+	NodoD nodoAux3=null;
+
+	nodoAux=buscarNodoPosicion(posicion);
+
+	if(nodoAux!=null){
+
+		nodoAux2=nodoAux.getAnterior();
+		nodoAux3=nodoAux.getSiguiente();
+
+		nodoAux2.setSiguiente(nodoAux3);
+
+		nodoAux3.setAnterior(nodoAux2);
+
+	}
+
+}
+
+public String recorrerListaAscendente(){
+
+	String lista = "";
+
+	if(verificarVacia()==false){
+
+		NodoD nodoAux= cabezaLista;
+		int i=0;
+
+		while(nodoAux!= null){
+
+			lista += (i + ". [ "+ nodoAux.getElemento()+" ] <-> ");
+			nodoAux=nodoAux.getSiguiente();
+
+			i++;
 		}
 
-		return nodoEncontrado;
 	}
+	return lista;
 
-	public void eliminarLista(){
+}
 
-		cabezaLista.setSiguiente(finalLista);
-		finalLista.setAnterior(cabezaLista);
-		tamaño=0;
+public String recorrerListaDescendente(){
 
-	}
+	String lista = "";
 
-	public void editarNodoContenido(String dato, String datoNuevo){
+	if(verificarVacia()==false){
 
-		NodoD nodoAux = null;
+		NodoD nodoAux= finalLista;
+		int i=tamaño;
 
-		nodoAux=buscarNodoContenido(dato);
+		while(nodoAux!= null){
 
-		if(nodoAux!=null){
+			lista += (i + ". [ "+ nodoAux.getElemento()+" ] <-> ");
+			nodoAux=nodoAux.getAnterior();
 
-			nodoAux.setElemento(datoNuevo);
-
+			i--;
 		}
 
 	}
+	return lista;
 
-	public void editarNodoPosición(int posicion, String dato){
-
-		NodoD nodoAux = null;
-
-		nodoAux=buscarNodoPosicion(posicion);
-
-		if(nodoAux!=null){
-
-			nodoAux.setElemento(dato);
-
-		}
-
-	}
-
-	public void eliminarNodoContenido(String dato){
-
-		NodoD nodoAux = null;
-		NodoD nodoAux2=null;
-		NodoD nodoAux3=null;
-
-		nodoAux=buscarNodoContenido(dato);
-
-		if(nodoAux!=null){
-
-			nodoAux2=nodoAux.getAnterior();
-			nodoAux3=nodoAux.getSiguiente();
-
-			nodoAux2.setSiguiente(nodoAux3);
-
-			nodoAux3.setAnterior(nodoAux2);
-
-		}
-
-	}
-
-	public void eliminarNodoPosición(int posicion){
-
-		NodoD nodoAux = null;
-		NodoD nodoAux2=null;
-		NodoD nodoAux3=null;
-
-		nodoAux=buscarNodoPosicion(posicion);
-
-		if(nodoAux!=null){
-
-			nodoAux2=nodoAux.getAnterior();
-			nodoAux3=nodoAux.getSiguiente();
-
-			nodoAux2.setSiguiente(nodoAux3);
-
-			nodoAux3.setAnterior(nodoAux2);
-
-		}
-
-	}
-
-	public String recorrerListaAscendente(){
-
-		String lista = "";
-
-		if(verificarVacia()==false){
-
-			NodoD nodoAux= cabezaLista;
-			int i=0;
-
-			while(nodoAux!= null){
-
-				lista += (i + ". [ "+ nodoAux.getElemento()+" ] <-> ");
-				nodoAux=nodoAux.getSiguiente();
-
-				i++;
-			}
-
-		}
-		return lista;
-
-	}
-
-	public String recorrerListaDescendente(){
-
-		String lista = "";
-
-		if(verificarVacia()==false){
-
-			NodoD nodoAux= finalLista;
-			int i=tamaño;
-
-			while(nodoAux!= null){
-
-				lista += (i + ". [ "+ nodoAux.getElemento()+" ] <-> ");
-				nodoAux=nodoAux.getAnterior();
-
-				i--;
-			}
-
-		}
-		return lista;
-
-	}
+}
 
 }
