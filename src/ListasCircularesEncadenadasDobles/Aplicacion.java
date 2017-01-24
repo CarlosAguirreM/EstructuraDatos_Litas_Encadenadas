@@ -4,15 +4,15 @@ public class Aplicacion {
 
 	public static void main(String[] args) throws Exception {
         
-		 ListasDobleEnlace lista = new ListasDobleEnlace();
+		 ListaCircular lista = new ListaCircular();
 	        
 		 //NodoD nodoAux = new NodoD("", null, null);
 	        
 	        System.out.println("************* Ejemplo de lista Doble ************\n");
 	        
-	        lista.agregarNodoInicio(new NodoD("1", null, null));
-	        lista.agregarNodoInicio(new NodoD("2", null, null));
-	        lista.agregarNodoInicio(new NodoD("3", null, null));
+	        lista.insertarInicio(new NodoDC("1"));
+	        lista.insertarFinal(new NodoDC("2"));
+	        /*lista.agregarNodoInicio(new NodoD("3", null, null));
 	        lista.agregarNodoInicio(new NodoD("4", null, null));
 	        lista.agregarNodoInicio(new NodoD("5", null, null));
 	        lista.agregarNodoInicio(new NodoD("6", null, null));
@@ -24,8 +24,8 @@ public class Aplicacion {
 	        System.out.println("\n\n***** Lista de inicio a fin*****");
 	        System.out.println("\n"+lista.recorrerListaAscendente());
 	        
-	       /* System.out.println("\n\n***** Lista de fin a inicio*****");
-	        System.out.println(lista.recorrerListaDescendente());*/
+	        System.out.println("\n\n***** Lista de fin a inicio*****");
+	        System.out.println(lista.recorrerListaDescendente());
 	        
 	        System.out.println("\n\n***** Tamaño ******");
 	        System.out.println(lista.getTamaño());
@@ -45,6 +45,6 @@ public class Aplicacion {
 	        System.out.println("\n"+lista.recorrerListaAscendente());
 	        
 	        System.out.println(lista.buscarNodoContenido("2").getElemento());
-	
+	*/
 }
 }
