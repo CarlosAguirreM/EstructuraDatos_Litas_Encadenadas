@@ -77,19 +77,6 @@ public class Aplicacion {
 		lista.eliminarLista();
 		System.out.println(lista.recorrerSig()+"\nTamaño:"+lista.getTamaño());
 
-		/*
-
-
-
-
-	        lista.eliminarIncio();
-	        System.out.println("\n"+lista.recorrerListaAscendente());
-
-	        lista.eliminarFinal();
-	        System.out.println("\n"+lista.recorrerListaAscendente());
-
-	        System.out.println(lista.buscarNodoContenido("2").getElemento());
-		 */
 	}
 	
 	public static String imprimirExistencia(NodoDC nodo){
