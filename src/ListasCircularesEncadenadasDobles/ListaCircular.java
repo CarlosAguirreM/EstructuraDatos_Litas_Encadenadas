@@ -144,8 +144,6 @@ public class ListaCircular {
 			NodoDC nodoAux=cabeza;
 			int i=0;
 
-			//System.out.print("Inicio <--> ");
-
 			do{
 
 				lista += (i + ". [ "+ nodoAux.getElemento()+" ] <-> ");
@@ -156,7 +154,7 @@ public class ListaCircular {
 			}while(nodoAux.getSiguiente()!=cabeza);
 
 			lista += (i + ". [ "+ nodoAux.getElemento()+" ] <-> ");
-			lista += ("NULL");
+			lista += ("cabeza");
 
 		}
 
@@ -177,8 +175,6 @@ public class ListaCircular {
 			NodoDC nodoAux=cabeza;
 			int i=0;
 
-			//System.out.print("Inicio <--> ");
-
 			do{
 
 				lista += (i + ". [ "+ nodoAux.getElemento()+" ] <-> ");
@@ -189,7 +185,7 @@ public class ListaCircular {
 			}while(nodoAux.getAnterior()!=cabeza);
 
 			lista += (i + ". [ "+ nodoAux.getElemento()+" ] <-> ");
-			lista += ("NULL");
+			lista += ("cabeza");
 
 		}
 
@@ -229,6 +225,7 @@ public class ListaCircular {
 			}
 
 		}
+		tamaño--;
 	}
 
 	public void eliminarNodoContenido(String elemento){
@@ -253,7 +250,81 @@ public class ListaCircular {
 
 
 		}
+		
+		tamaño--;
 
 	}
 
+	public void eliminarLista(){
+		
+		cabeza=null;
+		tamaño=0;
+		
+	}
+
+	public void agregarAntes(NodoDC nodoNuevo, String dato){ 
+
+		NodoDC nodoAux = null;
+		NodoDC nodoAuxAnt = null;
+
+		nodoAux=buscarContenido(dato);
+
+		if(nodoAux != null){
+
+			nodoAuxAnt = nodoAux.getAnterior();
+
+			nodoNuevo.setAnterior(nodoAuxAnt);
+			nodoNuevo.setSiguiente(nodoAux);
+
+			nodoAuxAnt.setSiguiente(nodoNuevo);
+
+			nodoAux.setAnterior(nodoNuevo);
+		}
+
+		tamaño++;
+	}
+
+	public void agregarDespues(NodoDC nodoNuevo, String dato){ 
+
+		NodoDC nodoAux = null;
+		NodoDC nodoAuxSig = null;
+
+		nodoAux=buscarContenido(dato);
+
+		if(nodoAux != null){
+
+			nodoAuxSig = nodoAux.getSiguiente();
+
+			nodoNuevo.setSiguiente(nodoAuxSig);
+			nodoNuevo.setAnterior(nodoAux);
+
+			nodoAuxSig.setAnterior(nodoNuevo);
+
+			nodoAux.setSiguiente(nodoNuevo);
+		}
+
+		tamaño++;
+	}
+
+	public void agregarPosicion(NodoDC nodoNuevo, int posicion){ 
+
+		NodoDC nodoAuxAnt = null;
+		NodoDC nodoAuxSig = null;
+
+		nodoAuxSig=buscarNodoPosicion(posicion);
+		
+		if(nodoAuxSig != null){
+
+			nodoAuxAnt = nodoAuxSig.getAnterior();
+
+			nodoNuevo.setSiguiente(nodoAuxSig);
+			nodoNuevo.setAnterior(nodoAuxAnt);
+
+			nodoAuxAnt.setSiguiente(nodoNuevo);
+
+			nodoAuxSig.setAnterior(nodoNuevo);
+		}
+
+		tamaño++;
+	}
 }
