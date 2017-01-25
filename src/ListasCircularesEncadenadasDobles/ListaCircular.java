@@ -79,12 +79,17 @@ public class ListaCircular {
 	public NodoDC buscarContenido(String elemento){
 
 		NodoDC auxNodo=cabeza;
+		NodoDC nodoEncontado=null;
+		
 		while((auxNodo.getSiguiente()!=cabeza)&&!(auxNodo.getElemento().equals(elemento))){
 
 			auxNodo=auxNodo.getSiguiente();
+			
+			if(auxNodo.getElemento().equals(elemento))
+				nodoEncontado=auxNodo;
 
 		}
-		return auxNodo;
+		return nodoEncontado;
 	}
 
 	public NodoDC buscarNodoPosicion(int posicion){

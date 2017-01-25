@@ -23,23 +23,22 @@ public class Aplicacion {
 		lista.insertarFinal(new NodoDC("-3"));
 		lista.insertarFinal(new NodoDC("-4"));
 		lista.insertarFinal(new NodoDC("-5"));
-
-		System.out.println("\n\n***** Tamaño ******");
-		System.out.println(lista.getTamaño());
-
+		
+		System.out.println("\n"+lista.recorrerSig()+"\nTamaño:"+lista.getTamaño());
+		
 		System.out.println("\n\n***** Consulta si existe el elemento 2 ******");
-		System.out.println(lista.buscarContenido("2").getElemento());
-
-		System.out.println("\n\n***** Obtener posicion del elemento 2 ******");
 		System.out.println(imprimirExistencia(lista.buscarContenido("2")));
+
+		System.out.println("\n\n***** Consulta si existe el elemento 90 ******");
+		System.out.println(imprimirExistencia(lista.buscarContenido("90")) );
 		
 		System.out.println("\n\n***** Obtener posicion del elemento 2 ******");
-		System.out.println(imprimirExistencia(lista.buscarContenido("90")));
+		System.out.println(lista.getPosicion("2"));
 		
-		System.out.println("\n\n***** Consulta si existe el nodo de posicion 1 ******");
+		System.out.println("\n\n***** Consulta si existe el nodo de posicion 3 ******");
 		System.out.println(imprimirExistencia(lista.buscarNodoPosicion(3)));
 
-		System.out.println("\n\n***** Consulta si existe el nodo de posicion 1 ******");
+		System.out.println("\n\n***** Consulta si existe el nodo de posicion 23 ******");
 		System.out.println(imprimirExistencia(lista.buscarNodoPosicion(23)));
 
 		System.out.println("\n\n********Ingresa un nodo nuevo al inicio**********");
