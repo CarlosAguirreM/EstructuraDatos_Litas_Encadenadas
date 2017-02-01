@@ -1,10 +1,14 @@
 package ListasTaller;
 
+import ListasEncadenadasSimples.Lista;
+
 public class Main {
+	
+	 static ListaAlumnos lista = new ListaAlumnos();
 	
 	 public static void main(String[] args) throws Exception {
 	        
-		 ListaAlumnos lista = new ListaAlumnos();
+		
 		 
 		 	lista.agregarAlumno(new Alumno("Adrian", "Acurio", "172555690", null));
 		 	lista.agregarAlumno(new Alumno("Bertha", "Beltrán", "172555691", null));
@@ -25,46 +29,27 @@ public class Main {
 	        System.out.println("\n\n***** Tamaño ******");
 	        System.out.println(lista.getTamaño());
 	        	        	        
-	        System.out.println("¿Existe el alumno de cédula 172555690?");
-	        lista.buscarAlumno("172555690");
-	        System.out.println(lista.imprimirLista());
+	        System.out.println("\n¿Existe el alumno de cédula 172555690?");
+	        System.out.println(imprimirExistencia("172555690"));
 	        
-	        System.out.println("\nIngresa un nodo nuevo al inicio");
-	        lista.agregarNodoInicio(new Nodo("hoola", null));
-	        System.out.println(lista.imprimirLista());
+	        System.out.println("\n¿Existe el alumno de cédula 173255690?");
+	        System.out.println(imprimirExistencia("173255690"));
 	        
-	        System.out.println("\nIngresa un nodo nuevo al final");
-	        lista.agregarFinal(new Nodo("23", null));
-	        System.out.println(lista.imprimirLista());
-	        
-	        System.out.println("\nElimina el valor inicial");
-	        lista.eliminarInicio(nodoAux);
-	        System.out.println(lista.imprimirLista());
-	        
-	        System.out.println("\nConsulta si existe el valor 30");
-	        System.out.println(lista.buscarNodo("23"));
-	        
-	        System.out.println("\nConsulta la posicion del valor 9");
-	        System.out.println(lista.getPosicion("9"));
-	        
-	        System.out.println(lista.imprimirLista());
-	        
-	        System.out.println("\nElimina la lista");
-	        lista.eliminarLista();
-	        System.out.println(lista.imprimirLista());
-	        System.out.println(lista.imprimirLista());
-	        
-	        System.out.println("\nConsulta si la lista está vacia");
-	        System.out.println(lista.verificarVacia()); 
-	    
-	
+	        System.out.println("\nIngresar nuevo alumno con cedula repetida");
+	        if(lista.agregarAlumno(new Alumno("Daniel", "Enriquez", "172555690", null))!=""){
+	        	
+	        	 System.out.println("No se puede ingresar un alumno con cedula duplicada");
+	        	
+	        }
+	        	
 	    }   
 	
-	public static String imprimirExistencia(Alumno alumno){
+	public static String imprimirExistencia(String dato){
 		
-		if
+		if(lista.buscarAlumno(dato)!=null)
+			return "Si"+"\n"+lista.buscarAlumno(dato).toString();
 		
-		return 
+		return "No";
 	}
 
 }

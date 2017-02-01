@@ -65,7 +65,7 @@ public class ListaAlumnos {
 		if(verificarVacia()==false){
 			
 			Alumno alumnoAux= alumnoInicial;
-			int i=0;
+			int i=1;
 			
 			while(alumnoAux!= null){
 				
