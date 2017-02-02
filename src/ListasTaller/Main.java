@@ -50,6 +50,7 @@ public class Main {
 			return "Si"+"\n"+lista.buscarAlumno(dato).toString();
 		
 		return "No";
+		
 	}
 
 }
