@@ -22,8 +22,7 @@ public class Main {
 		 	lista.agregarAlumno(new Alumno("Jose", "Kure", "172555699", null));
 		 		       	        
 	        System.out.println("************* Lista de alumnos ************\n");
-	              
-	       
+	        System.out.println("No. Nombre   Apellido   Cedula    ");      
 	        System.out.println(lista.recorrerLista());
 	        
 	        System.out.println("\n\n***** Tamaño ******");
@@ -41,6 +40,10 @@ public class Main {
 	        	 System.out.println("No se puede ingresar un alumno con cedula duplicada");
 	        	
 	        }
+	        
+	        System.out.println("\n\n************* Lista de alumnos ************\n");
+	        System.out.println("No. Nombre   Apellido   Cedula    ");       
+	        System.out.println(lista.recorrerLista());
 	        	
 	    }   
 	

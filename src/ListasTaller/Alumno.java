@@ -50,7 +50,12 @@ public class Alumno {
 
 	@Override
 	public String toString() {
-		return "Nombre: " + nombre + "\nApellido: " + apellido + "\nCedula=" + cedula ;
+		
+		String espacios="                                ";
+		
+		return "Nombre: " +  espacios.substring(0, 10-"Nombre: ".length()) + nombre 
+				+ "\nApellido: " + espacios.substring(0, 10-"Apellido: ".length())+ apellido 
+				+ "\nCedula: " + espacios.substring(0, 10-"Cedula: ".length())+ cedula ;
 	}
 	
 		

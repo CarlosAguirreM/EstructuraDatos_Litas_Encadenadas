@@ -61,6 +61,7 @@ public class ListaAlumnos {
 	public String recorrerLista(){
 		
 		String lista = "";
+		String espacios = "                                                                  ";
 		
 		if(verificarVacia()==false){
 			
@@ -69,7 +70,13 @@ public class ListaAlumnos {
 			
 			while(alumnoAux!= null){
 				
-				lista += (i + alumnoAux.getNombre()+ alumnoAux.getApellido()+ alumnoAux.getCedula()+"\n");
+				lista += (i+espacios.substring(0, 4-String.valueOf(i).length()) +
+						alumnoAux.getNombre()+ 
+						espacios.substring(0, 9-alumnoAux.getNombre().length()) + 
+						alumnoAux.getApellido()+
+						espacios.substring(0, 12-alumnoAux.getApellido().length()) + 
+						alumnoAux.getCedula()+"\n");
+				
 				alumnoAux=alumnoAux.getNext();
 				
 				i++;
