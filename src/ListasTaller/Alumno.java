@@ -53,6 +53,5 @@ public class Alumno {
 		return "Nombre: " + nombre + "\nApellido: " + apellido + "\nCedula=" + cedula ;
 	}
 	
-	
-	
+		
 }
