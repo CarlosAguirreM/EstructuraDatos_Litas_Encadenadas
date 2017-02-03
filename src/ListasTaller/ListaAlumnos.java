@@ -1,14 +1,12 @@
 package ListasTaller;
 
-import ListasEncadenadasSimples.Nodo;
-
 public class ListaAlumnos {
 
 	protected Alumno alumnoInicial;
-	protected long tamaño;
+	protected long tamaÃ±o;
 
-	public long getTamaño(){
-		return tamaño;
+	public long getTamaÃ±o(){
+		return tamaÃ±o;
 	}
 
 	public boolean verificarVacia(){
@@ -30,7 +28,7 @@ public class ListaAlumnos {
 
 		}
 
-		tamaño++; // El tamaño de la lista aumenta en 1 
+		tamaÃ±o++; // El tamaÃ±o de la lista aumenta en 1 
 		
 	}
 	
