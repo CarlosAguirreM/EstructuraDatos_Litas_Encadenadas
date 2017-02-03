@@ -51,7 +51,9 @@ public class SLinkedList {
 	}
 
 	public String imprimirLista(){
-		String R="Lista de Productos \n#Uni | Estado        | Nombre";
+		
+		String R="------------Lista de Productos------------ \n\n#Uni | Estado        | Nombre";
+		String espacios="                                              ";
 
 		if(!ListaVacia()){
 
@@ -59,7 +61,7 @@ public class SLinkedList {
 			int i=0;
 
 			while(nodoaux!= null){
-				R+=  "\n  "+nodoaux.getCantidad()+"  | ["+ nodoaux.getEstado()+"]"+"   | ["+ nodoaux.getElemento()+"]";
+				R+=  "\n  "+nodoaux.getCantidad()+"  | ["+ nodoaux.getEstado()+"]"+espacios.substring(0, 12-nodoaux.getEstado().length())+"| ["+ nodoaux.getElemento()+"]";
 				nodoaux=nodoaux.getnext();
 				i++;
 			}
@@ -105,13 +107,13 @@ public class SLinkedList {
 		Nodo nodoAux=head; 
 		Nodo nodoEncontrado=null;
 
-		while(nodoAux.getnext()!=null ){  
-
-			nodoAux=nodoAux.getnext();
+		do{  
 			//System.out.println(nodoAux);
 			if(nodoAux.getElemento().equals(dato)) 
 				nodoEncontrado=nodoAux;
-		}
+			
+			nodoAux=nodoAux.getnext();
+		}while(nodoAux!=null );
 
 		return nodoEncontrado;
 	}

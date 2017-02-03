@@ -72,7 +72,7 @@ public class Main {
 	public static void main(String[] args) {
 		SLinkedList lista_productos= new SLinkedList();
 		
-		System.out.println("----Cargando Inventario----");
+		System.out.println("---------------Cargando Inventario---------------");
 		System.out.println("cargando atun...");
 		lista_productos.addFirst(NuevoNodo("atun", 3, "no listo"));
 		
