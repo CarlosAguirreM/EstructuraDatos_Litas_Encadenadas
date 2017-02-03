@@ -52,18 +52,19 @@ public class SLinkedList {
 
 	public String imprimirLista(){
 		
-		String R="------------Lista de Productos------------ \n\n#Uni | Estado        | Nombre";
+		String R="\n------------Lista de Productos------------ \n\n#Uni | Estado        | Nombre";
 		String espacios="                                              ";
 
 		if(!ListaVacia()){
 
 			Nodo nodoaux= head;
-			int i=0;
-
+			
 			while(nodoaux!= null){
+				
+				if(nodoaux.getEstado()=="no listo")
 				R+=  "\n  "+nodoaux.getCantidad()+"  | ["+ nodoaux.getEstado()+"]"+espacios.substring(0, 12-nodoaux.getEstado().length())+"| ["+ nodoaux.getElemento()+"]";
 				nodoaux=nodoaux.getnext();
-				i++;
+				
 			}
 
 		}
@@ -125,7 +126,7 @@ public class SLinkedList {
 		nodoAux=buscarNodoContenido(dato);
 		//System.out.println(nodoAux);
 		if(nodoAux!=null){
-			nodoAux.setEstado(datoNuevo);
+			//nodoAux.setEstado(datoNuevo);
 			//System.out.println(nodoAux);
 			nodoAux.setCantidad((nodoAux.getCantidad()-cNueva));
 

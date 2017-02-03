@@ -87,7 +87,7 @@ public class Main {
 		System.out.println(lista_productos.imprimirLista());
 	
 	
-	System.out.println("----Ingresando lista de cliente----");
+	System.out.println("\n----Ingresando lista de cliente----\n");
 	System.out.println("comprando atun (2)...");
 	lista_productos.editarNodoContenido("atun",2,"listo");
 	
@@ -104,10 +104,8 @@ public class Main {
 	lista_productos.editarNodoContenido("limon",1,"listo");
 	
 	
-	System.out.println("----Actualizando Inventario----");
+	System.out.println("\n------------Actualizando Inventario------------");
 	System.out.println(lista_productos.imprimirLista());
-	
-	
 	
 	}
 	
