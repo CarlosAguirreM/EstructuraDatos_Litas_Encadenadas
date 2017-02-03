@@ -1,7 +1,5 @@
 package ListasTaller;
 
-import ListasEncadenadasSimples.Lista;
-
 public class Main {
 	
 	 static ListaAlumnos lista = new ListaAlumnos();
@@ -9,11 +7,11 @@ public class Main {
 	 public static void main(String[] args) throws Exception {
 	        
 		 	lista.agregarAlumno(new Alumno("Adrian", "Acurio", "172555690", null));
-		 	lista.agregarAlumno(new Alumno("Bertha", "Beltrán", "172555691", null));
+		 	lista.agregarAlumno(new Alumno("Bertha", "BeltrÃ¡n", "172555691", null));
 		 	lista.agregarAlumno(new Alumno("Cesar", "Carrasco", "172555692", null));
-		 	lista.agregarAlumno(new Alumno("Daniela", "Espín", "172555693", null));
-		 	lista.agregarAlumno(new Alumno("Ernesto", "Fernández", "172555694", null));
-		 	lista.agregarAlumno(new Alumno("Fatima", "Fernádez", "172555695", null));
+		 	lista.agregarAlumno(new Alumno("Daniela", "EspÃ­n", "172555693", null));
+		 	lista.agregarAlumno(new Alumno("Ernesto", "FernÃ¡ndez", "172555694", null));
+		 	lista.agregarAlumno(new Alumno("Fatima", "FernÃ¡dez", "172555695", null));
 		 	lista.agregarAlumno(new Alumno("Gabriel", "Pazminio", "172555696", null));
 		 	lista.agregarAlumno(new Alumno("Hilda", "Maldonado", "172555697", null));
 		 	lista.agregarAlumno(new Alumno("Cithia", "Montenegro", "172555698", null));
@@ -23,10 +21,10 @@ public class Main {
 	        System.out.println("No. Nombre   Apellido   Cedula    ");      
 	        System.out.println(lista.recorrerLista());
 	        	        	        	        
-	        System.out.println("\n¿Existe el alumno de cédula 172555690?");
+	        System.out.println("\nÂ¿Existe el alumno de cÃ©dula 172555690?");
 	        System.out.println(imprimirExistencia("172555690"));
 	        
-	        System.out.println("\n¿Existe el alumno de cédula 173255690?");
+	        System.out.println("\nÂ¿Existe el alumno de cÃ©dula 173255690?");
 	        System.out.println(imprimirExistencia("173255690"));
 	        
 	        System.out.println("\nIngresar nuevo alumno ");
@@ -41,6 +39,7 @@ public class Main {
 	        
 	        SLinkedList lista_productos= new SLinkedList();
 			
+		 System.out.println("\nPROGRAMA 2\n");
 			System.out.println("---------------Cargando Inventario---------------");
 			System.out.println("cargando atun...");
 			lista_productos.addFirst(NuevoNodo("atun", 3, "no listo"));
