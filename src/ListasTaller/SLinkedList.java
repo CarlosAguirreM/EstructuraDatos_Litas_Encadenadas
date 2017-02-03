@@ -24,27 +24,6 @@ public class SLinkedList {
 		size = size + 1; 	//{increment the node count}
 	}
 
-	public void removeFirst(){
-		Nodo t;
-		if (head == null){
-			System.out.println("Error");
-		}
-		t=head;
-		head = head.getnext();
-		t.setNext(null);
-		size=size-1;
-	}
-	public void removeLast(){
-		Nodo t;
-		if (head == null){
-			System.out.println("Error");
-		}
-		t=head;
-		head = head.getnext();
-		t.setNext(null);
-		size=size-1;
-	}
-
 	public boolean ListaVacia(){
 
 		return head==null;
@@ -71,37 +50,6 @@ public class SLinkedList {
 		return R;
 
 	}
-	public static String Busqueda(String elemento){
-		Nodo B=head;   
-		boolean e=false;
-		String cont="";
-		while(B!=null&&e!=true){
-			if(elemento.equals(B.getElemento()))
-			{	
-				cont = B.getElemento();
-				e=true;
-			}
-			else
-				B=B.getnext();
-		}
-		return cont;
-	}
-
-
-	public void addLast(Nodo v){
-
-		if(ListaVacia()==true)
-			head = v;
-		else{
-			Nodo nodoauxiliar=head;
-			while (nodoauxiliar.getnext()!=null){
-				nodoauxiliar=nodoauxiliar.getnext();
-			}
-
-			nodoauxiliar.setNext(v);
-		}
-		size++;	
-	}
 	
 	public Nodo buscarNodoContenido(String dato){
 
@@ -124,10 +72,10 @@ public class SLinkedList {
 		Nodo nodoAux = null;
 
 		nodoAux=buscarNodoContenido(dato);
-		//System.out.println(nodoAux);
+		
 		if(nodoAux!=null){
-			//nodoAux.setEstado(datoNuevo);
-			//System.out.println(nodoAux);
+			nodoAux.setEstado(datoNuevo);
+			
 			nodoAux.setCantidad((nodoAux.getCantidad()-cNueva));
 
 		}
