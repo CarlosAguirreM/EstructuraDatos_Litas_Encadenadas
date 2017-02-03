@@ -24,23 +24,19 @@ public class Main {
 	        System.out.println("************* Lista de alumnos ************\n");
 	        System.out.println("No. Nombre   Apellido   Cedula    ");      
 	        System.out.println(lista.recorrerLista());
-	        
-	        System.out.println("\n\n***** Tamaño ******");
-	        System.out.println(lista.getTamaño());
-	        	        	        
+	        	        	        	        
 	        System.out.println("\n¿Existe el alumno de cédula 172555690?");
 	        System.out.println(imprimirExistencia("172555690"));
 	        
 	        System.out.println("\n¿Existe el alumno de cédula 173255690?");
 	        System.out.println(imprimirExistencia("173255690"));
 	        
+	        System.out.println("\nIngresar nuevo alumno ");
+	        verificarNuevo(new Alumno("Juan", "Aguilera", "172555611", null));
+	        	        
 	        System.out.println("\nIngresar nuevo alumno con cedula repetida");
-	        if(lista.agregarAlumno(new Alumno("Daniel", "Enriquez", "172555690", null))!=""){
-	        	
-	        	 System.out.println("No se puede ingresar un alumno con cedula duplicada");
-	        	
-	        }
-	        
+	        verificarNuevo(new Alumno("Daniel", "Enriquez", "172555690", null));
+	       	        
 	        System.out.println("\n\n************* Lista de alumnos ************\n");
 	        System.out.println("No. Nombre   Apellido   Cedula    ");       
 	        System.out.println(lista.recorrerLista());
@@ -53,6 +49,18 @@ public class Main {
 			return "Si"+"\n"+lista.buscarAlumno(dato).toString();
 		
 		return "No";
+		
+	}
+	
+	public static void verificarNuevo(Alumno dato){
+		
+		if(lista.buscarAlumno(dato.getCedula())!=null)
+			System.out.println("Cedula ya existente, no se puede ingresar alumnos con cedulas duplicadas");
+		else{
+			
+			lista.agregarAlumno(dato);
+			
+		}
 		
 	}
 

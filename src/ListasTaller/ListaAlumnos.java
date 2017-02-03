@@ -16,17 +16,15 @@ public class ListaAlumnos {
 		return alumnoInicial==null;
 	}
 
-	public String agregarAlumno(Alumno nuevoAl){ 
+	public void agregarAlumno(Alumno nuevoAl){
 		
+
 		if(verificarVacia()==true){
 
 			alumnoInicial=nuevoAl;
 
 		}else{
 			
-			if(buscarAlumno(nuevoAl.getCedula())!=null)
-				return "No se puede ingresar un alumno duplicado";
-				
 			nuevoAl.setNext(alumnoInicial);
 			alumnoInicial=nuevoAl;
 
@@ -34,8 +32,6 @@ public class ListaAlumnos {
 
 		tamaño++; // El tamaño de la lista aumenta en 1 
 		
-		return "";
-
 	}
 	
 	public Alumno buscarAlumno(String dato){
@@ -86,7 +82,5 @@ public class ListaAlumnos {
 		
 		return lista;
 	}
-
-
 
 }
