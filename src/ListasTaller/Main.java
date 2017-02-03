@@ -2,14 +2,12 @@ package ListasTaller;
 
 import ListasEncadenadasSimples.Lista;
 
-/*public class Main {
+public class Main {
 	
 	 static ListaAlumnos lista = new ListaAlumnos();
 	
 	 public static void main(String[] args) throws Exception {
 	        
-		
-		 
 		 	lista.agregarAlumno(new Alumno("Adrian", "Acurio", "172555690", null));
 		 	lista.agregarAlumno(new Alumno("Bertha", "Beltrán", "172555691", null));
 		 	lista.agregarAlumno(new Alumno("Cesar", "Carrasco", "172555692", null));
@@ -40,6 +38,43 @@ import ListasEncadenadasSimples.Lista;
 	        System.out.println("\n\n************* Lista de alumnos ************\n");
 	        System.out.println("No. Nombre   Apellido   Cedula    ");       
 	        System.out.println(lista.recorrerLista());
+	        
+	        SLinkedList lista_productos= new SLinkedList();
+			
+			System.out.println("---------------Cargando Inventario---------------");
+			System.out.println("cargando atun...");
+			lista_productos.addFirst(NuevoNodo("atun", 3, "no listo"));
+			
+			System.out.println("cargando panes...");
+			lista_productos.addFirst(NuevoNodo("pan", 4, "no listo"));
+			
+			System.out.println("cargando galletas...");
+			lista_productos.addFirst(NuevoNodo("galleta", 2, "no listo"));
+			
+			System.out.println("cargando limones...");
+			lista_productos.addFirst(NuevoNodo("limon", 2, "no listo"));
+			System.out.println(lista_productos.imprimirLista());
+		
+		
+		System.out.println("\n----Ingresando lista de cliente----\n");
+		System.out.println("comprando atun (2)...");
+		lista_productos.editarNodoContenido("atun",2,"listo");
+		
+		
+		System.out.println("comprando pan (1)...");
+		lista_productos.editarNodoContenido("pan",1,"listo");
+		
+		
+		System.out.println("comprando galletas (2)...");
+		lista_productos.editarNodoContenido("galleta",2,"listo");
+		
+
+		System.out.println("comprando limones (1)...");
+		lista_productos.editarNodoContenido("limon",1,"listo");
+		
+		
+		System.out.println("\n------------Actualizando Inventario------------");
+		System.out.println(lista_productos.imprimirLista());
 	        	
 	    }   
 	
@@ -63,60 +98,11 @@ import ListasEncadenadasSimples.Lista;
 		}
 		
 	}
-
-}*/
-
-
-public class Main {
-
-	public static void main(String[] args) {
-		SLinkedList lista_productos= new SLinkedList();
-		
-		System.out.println("---------------Cargando Inventario---------------");
-		System.out.println("cargando atun...");
-		lista_productos.addFirst(NuevoNodo("atun", 3, "no listo"));
-		
-		System.out.println("cargando panes...");
-		lista_productos.addFirst(NuevoNodo("pan", 4, "no listo"));
-		
-		System.out.println("cargando galletas...");
-		lista_productos.addFirst(NuevoNodo("galleta", 2, "no listo"));
-		
-		System.out.println("cargando limones...");
-		lista_productos.addFirst(NuevoNodo("limon", 2, "no listo"));
-		System.out.println(lista_productos.imprimirLista());
-	
-	
-	System.out.println("\n----Ingresando lista de cliente----\n");
-	System.out.println("comprando atun (2)...");
-	lista_productos.editarNodoContenido("atun",2,"listo");
-	
-	
-	System.out.println("comprando pan (1)...");
-	lista_productos.editarNodoContenido("pan",1,"listo");
-	
-	
-	System.out.println("comprando galletas (2)...");
-	lista_productos.editarNodoContenido("galleta",2,"listo");
-	
-
-	System.out.println("comprando limones (1)...");
-	lista_productos.editarNodoContenido("limon",1,"listo");
-	
-	
-	System.out.println("\n------------Actualizando Inventario------------");
-	System.out.println(lista_productos.imprimirLista());
-	
-	}
 	
 	public static Nodo NuevoNodo(String el,int n,String e){
 		Nodo N =null;
 			N = new Nodo(el,e,n,null);				
 		return N;
 	}
-	
-	
-	
-	
 
 }
